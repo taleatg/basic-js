@@ -10,8 +10,6 @@ let additionSeparator = options.additionSeparator || '';
 
 addition += additionSeparator;
 addition = addition.repeat(additionRepeatTimes);
-addition = addition.substr(0, addition.length - additionSeparator.length);
-
 newStr += addition + separator;
 newStr = newStr.repeat(repeatTimes);
 
