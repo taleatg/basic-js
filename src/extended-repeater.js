@@ -1,17 +1,19 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater(str, options) {
-let newStr = '',
-    str = str.join(),
-    addition = addition.join();
+let newStr = str;
+let repeatTimes = options.repeatTimes || 0;
+let separator = options.separator || '';
+let addition = options.addition || '';
+let additionRepeatTimes = options.additionRepeatTimes || 0;
+let additionSeparator = options.additionSeparator || '';
 
-  
+addition += additionSeparator;
+addition = addition.repeat(additionRepeatTimes);
+addition = addition.substr(0, addition.length - additionSeparator.length);
 
-  
-};
-  
+newStr += addition + separator;
+newStr = newStr.repeat(repeatTimes);
 
-
-//repeater('STRING', { repeatTimes: 3, separator: '**', addition: 'PLUS', 
-//additionRepeatTimes: 3, additionSeparator: '00' })` => 
-//`'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
+return newStr;
+}
